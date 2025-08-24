@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics.CodeAnalysis;
 
 namespace GeometryLib;
 
+/// <summary>
+///  Точка в двумерном Евклидовом пространстве.
+/// </summary>
 public readonly struct Point2D(double x, double y)
     : IEquatable<Point2D>
 {
@@ -39,13 +39,16 @@ public readonly struct Point2D(double x, double y)
         return Math.Sqrt((dx * dx) + (dy * dy));
     }
 
+    /// <summary>
+    ///  Проверяет равенство двух точек.
+    /// </summary>
     public bool Equals(Point2D other)
     {
         return Math.Abs(X - other.X) < Tolerance
                && Math.Abs(Y - other.Y) < Tolerance;
     }
 
-    public override bool Equals(object? obj)
+    public override bool Equals([NotNullWhen(true)] object? obj)
     {
         return obj is Point2D other && Equals(other);
     }
@@ -55,6 +58,9 @@ public readonly struct Point2D(double x, double y)
         return (X, Y).GetHashCode();
     }
 
+    /// <summary>
+    ///  Возвращает строковое представление точки в формате (x, y).
+    /// </summary>
     public override string ToString()
     {
         return $"({X}, {Y})";

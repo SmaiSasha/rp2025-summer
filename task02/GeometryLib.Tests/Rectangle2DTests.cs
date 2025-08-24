@@ -80,9 +80,9 @@ public class Rectangle2DTests
     public static TheoryData<Rectangle2D, Rectangle2D, bool> IntersectsTestData()
     {
         Rectangle2D r1 = new Rectangle2D(new Point2D(0, 10), new Point2D(10, 0));
-        Rectangle2D r2 = new Rectangle2D(new Point2D(12, 8), new Point2D(20, 2));  // нет пересечения
-        Rectangle2D r3 = new Rectangle2D(new Point2D(10, 8), new Point2D(18, 2));  // касаются
-        Rectangle2D r4 = new Rectangle2D(new Point2D(5, 12), new Point2D(12, 5));  // пересекаются
+        Rectangle2D r2 = new Rectangle2D(new Point2D(12, 8), new Point2D(20, 2));  // Нет пересечения
+        Rectangle2D r3 = new Rectangle2D(new Point2D(10, 8), new Point2D(18, 2));  // Касаются
+        Rectangle2D r4 = new Rectangle2D(new Point2D(5, 12), new Point2D(12, 5));  // Пересекаются
 
         return new TheoryData<Rectangle2D, Rectangle2D, bool>
         {
